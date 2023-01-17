@@ -1,0 +1,5 @@
+{
+    "ETLInsert": "Insert into DemoExampleCSV VALUES (GETDATE(),'P22222222222222','12345678','100','Automation testing','Particulars test','Sucessfull','41111 1111 ***','123' ,'TestCard',GETDATE(),'P22222222222223','50','Visa','Refund','Refunded')",
+    "ETLGetLatestData": "select * from DemoExampleCSV order by id desc",
+    "ETLExample": "SELECT *FROM DemoCSV"
+}

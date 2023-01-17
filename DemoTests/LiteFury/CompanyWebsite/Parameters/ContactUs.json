@@ -1,0 +1,9 @@
+{
+    "ContactUs": {
+        "Name": "UI TestAutomation",
+        "Email": "automation@gmail.com",
+        "Number" :"9191919191",
+        "Subject" : "Test Message",
+        "Message": "Test message"
+    }
+}

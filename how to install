@@ -1,0 +1,76 @@
+1. Check pre-requisites: You should have node and npm installed in the system. Take a copy of webdriver/wdio.conf.js file somewhere locally
+
+2. On terminal, navigate inside Webdriverio folder. and then type: npm install 
+
+3. Quick way of finding out what packages are installed locally: npm list --depth=0
+
+SOME HANDY TERMINAL COMMANDS
+
+
+Start test
+1. On terminal, type npx wdio wdio.conf.js
+
+For test in specific environments:
+1. On terminal, type npx wdio wdio.conf.js --env=<environment> 
+E.g. npx wdio wdio.conf.js --env=uat
+
+For test specific tags:
+1. On terminal, type npx wdio wdio.conf.js --cucumberOpts.tagExpression='<tagname>' 
+E.g. npx wdio wdio.conf.js --env=uat --cucumberOpts.tagExpression='@adminportal'
+
+For running test in UAT, and only feature files tagged with "adminportal"
+1. On terminal, type npx wdio wdio.conf.js --env=<environment> --cucumberOpts.tagExpression='<tagname>'
+E.g: npx wdio wdio.conf.js --env=uat --cucumberOpts.tagExpression='@adminportal'
+
+For running test in headless mode:
+1. On terminal, type npx wdio wdio.conf.js --headless
+Eg: npx wdio wdio.conf.js --env=uat --headless
+
+For running test with different log levels:
+1. On terminal, type npx wdio wdio.conf.js --log='<loglevel>'
+Eg: npx wdio wdio.conf.js --log=DEBUG
+
+For running API tests:
+1. On terminal, type npx wdio wdio.conf.js --apitest
+Eg: npx wdio wdio.conf.js --apitest
+
+For fomatting the code in file :
+1.Shift +Alt + F
+
+HOW TO USE THE FEATURE CONTEXT
+
+The feature/instance wide feature context can be used as such:
+
+const featureContext = require('../../../CommonUtils/FeatureContext');
+
+featureContext.setValue("myVar", someValue);
+featureContext.getValue("myVar");
+
+Furthermore, you can pass information to this featureContext via command line parameter. This can be useful for sensitive things like
+live card data, or tests that use some kind of data that is defined pre-runtime. Multiple variables can be stored by seperating 
+them with a comma
+
+npx wdio.conf.js --featureContext varName1:varValue1,varName2:varValue2
+
+Example:
+
+COMMAND LINE:
+
+npx wdio.conf.js --featureContext card:411111111111111,someOtherData:blablabla
+
+STEP DEF:
+
+const featureContext = require('../../../CommonUtils/FeatureContext');
+
+Given(
+    /^the user logs some passed feature context values$/,
+    { wrapperOptions: { retry: 1 } },
+    () => {
+        Log.debug(featureContext.getValue("card"));
+        Log.debug(featureContext.getValue("someOtherData"));
+    });
+
+For upgrading from v6 to v7 see: https://paymark.atlassian.net/wiki/spaces/TD/pages/2651324493/Upgrading+from+webdriverio+v6+to+v7
+
+
+

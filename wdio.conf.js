@@ -91,6 +91,8 @@ if (argv.parallel === 'true') {
 }
 
 exports.config = {
+    user: 'ashokkumar_P7tvXe',
+    key: 'txzzXnsL23b8VdzN2mBJ',
 
     //
     // ====================
@@ -145,20 +147,28 @@ exports.config = {
     //
     capabilities: [
         {
-            "platformName": "Android",
-            "appium:platformVersion": "10",
-            "appium:deviceName": "Redmi",
-            "appium:newCommandTimeout": 24000,
-            "appium:app": path.join(process.cwd(),"DemoTests/MobileApp/AndroidApp/demo.apk"),
-            "appium:automationName": "UIAutomator2",
-            "appium:appPackage": "com.myntra.android",
-            "appium:appActivity": "com.myntra.android.SplashActivity",
+            project: "First Webdriverio Android Project",
+            build: 'Webdriverio Android',
+            name: 'first_test',
+            device: 'Google Pixel 3',
+            os_version: "9.0",
+            app: process.env.BROWSERSTACK_APP_ID || 'bs://2ced1cc6650b7aaab1e409f575259a61109da665',
+            'browserstack.debug': true
+
+            // "platformName": "Android",
+            // "appium:platformVersion": "10",
+            // "appium:deviceName": "Redmi",
+            // "appium:newCommandTimeout": 24000,
+            // "appium:app": path.join(process.cwd(),"DemoTests/MobileApp/AndroidApp/demo.apk"),
+            // "appium:automationName": "UIAutomator2",
+            // "appium:appPackage": "com.myntra.android",
+            // "appium:appActivity": "com.myntra.android.SplashActivity",
     
 
             // maxInstances can get overwritten per capability. So if you have an in-house Selenium
             // grid with only 5 firefox instances available you can make sure that not more than
             // 5 instances get started at a time.
-            maxInstances: 10,
+            //maxInstances: 10,
             // browserName: 'chrome',
             // acceptInsecureCerts: true,
             // 'goog:chromeOptions': {

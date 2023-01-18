@@ -13,7 +13,7 @@ const DateUtil = require('./CommonUtils/DateUtil');
 // The below module is used for cucumber html report generation
 const reporter = require('cucumber-html-reporter');
 const currentTime = DateUtil.getDateISOString().replace(/:/g, "-");
-let squad = "MobileApp";
+let squad = "LiteFury";
 const sourceSpecDirectory = 'DemoTests/' + squad + '/**/**'; 
 const jsonTmpDirectory = './reports/json/tmp/';
 const junitReportDirectory = './reports/junit/';
@@ -30,7 +30,7 @@ logLevelSettings = argv.log || "DEBUG" //if --log is supplied, set loglevel; els
 Log.setLogLevel(logLevelSettings);
 
 // For receiving --env parameters.
-testEnv = argv.env || "test" //if --env is supplied, set env; else, default to CTE
+testEnv = argv.env || "UAT" //if --env is supplied, set env; else, default to CTE
 Log.audit('Current Test Environment: ' + testEnv);
 
 
@@ -58,7 +58,7 @@ if (argv.featureContext) {
 }
 
 // For receiving --squad parameters.
-squad = argv.squad || "MobileApp" //if --squad is supplied, set Squad folder location; else, default to LiteFury
+squad = argv.squad || "LiteFury" //if --squad is supplied, set Squad folder location; else, default to LiteFury
 Log.audit('Current Squad: ' + squad);
 
 // For receiving --apitest parameters. if --apitest is supplied, trigger API tests
@@ -91,6 +91,8 @@ if (argv.parallel === 'true') {
 }
 
 exports.config = {
+      user: 'ashokkumar_P7tvXe',
+  key: 'txzzXnsL23b8VdzN2mBJ',
 
     //
     // ====================
@@ -100,7 +102,7 @@ exports.config = {
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
     runner: 'local',
-    port: 4724,
+    //port: 4724,
     //
     // ==================
     // Specify Test Files
@@ -143,22 +145,30 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [
+    capabilities: [ 
         {
-            "platformName": "Android",
-            "appium:platformVersion": "10",
-            "appium:deviceName": "Redmi",
-            "appium:newCommandTimeout": 24000,
-            "appium:app": path.join(process.cwd(),"DemoTests/MobileApp/AndroidApp/demo.apk"),
-            "appium:automationName": "UIAutomator2",
-            "appium:appPackage": "com.myntra.android",
-            "appium:appActivity": "com.myntra.android.SplashActivity",
+
+            browserName: 'Safari',
+            'bstack:options': {
+              os: 'OS X',
+              osVersion: 'Big Sur',
+              browserVersion: '14.1'
+                }
+
+            // "platformName": "Android",
+            // "appium:platformVersion": "10",
+            // "appium:deviceName": "Redmi",
+            // "appium:newCommandTimeout": 24000,
+            // "appium:app": path.join(process.cwd(),"DemoTests/MobileApp/AndroidApp/demo.apk"),
+            // "appium:automationName": "UIAutomator2",
+            // "appium:appPackage": "com.myntra.android",
+            // "appium:appActivity": "com.myntra.android.SplashActivity",
     
 
             // maxInstances can get overwritten per capability. So if you have an in-house Selenium
             // grid with only 5 firefox instances available you can make sure that not more than
             // 5 instances get started at a time.
-            maxInstances: 10,
+            // maxInstances: 10,
             // browserName: 'chrome',
             // acceptInsecureCerts: true,
             // 'goog:chromeOptions': {
@@ -230,14 +240,18 @@ exports.config = {
     connectionRetryTimeout: 120000,
     //
     // Default request retries count
-    connectionRetryCount: 3,
+    connectionRetryCount: 1,
     //
     // Test runner services
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver','appium'],//'chromedriver', 'selenium-standalone'
-
+    //services: ['chromedriver','appium'],//'chromedriver', 'selenium-standalone'
+    services: [
+        ['browserstack', {
+            browserstackLocal: true
+        }]
+    ],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -321,7 +335,7 @@ exports.config = {
         timeout: 150000,
 
         ignoreUndefinedDefinitions: false,
-        retry: 2
+        retry: 1
     },
 
     //
@@ -436,7 +450,7 @@ exports.config = {
         Log.audit("-----------------------------------------------------------------------")
 
         scenarioContext.reset();
-        //browserUtil.reset();
+        browserUtil.reset();
     },
     /**
      * Runs after a Cucumber feature

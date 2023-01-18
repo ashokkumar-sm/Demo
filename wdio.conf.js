@@ -13,7 +13,7 @@ const DateUtil = require('./CommonUtils/DateUtil');
 // The below module is used for cucumber html report generation
 const reporter = require('cucumber-html-reporter');
 const currentTime = DateUtil.getDateISOString().replace(/:/g, "-");
-let squad = "MobileApp";
+let squad = "LiteFury";
 const sourceSpecDirectory = 'DemoTests/' + squad + '/**/**'; 
 const jsonTmpDirectory = './reports/json/tmp/';
 const junitReportDirectory = './reports/junit/';
@@ -30,7 +30,7 @@ logLevelSettings = argv.log || "DEBUG" //if --log is supplied, set loglevel; els
 Log.setLogLevel(logLevelSettings);
 
 // For receiving --env parameters.
-testEnv = argv.env || "test" //if --env is supplied, set env; else, default to CTE
+testEnv = argv.env || "UAT" //if --env is supplied, set env; else, default to CTE
 Log.audit('Current Test Environment: ' + testEnv);
 
 
@@ -58,7 +58,7 @@ if (argv.featureContext) {
 }
 
 // For receiving --squad parameters.
-squad = argv.squad || "MobileApp" //if --squad is supplied, set Squad folder location; else, default to LiteFury
+squad = argv.squad || "LiteFury" //if --squad is supplied, set Squad folder location; else, default to LiteFury
 Log.audit('Current Squad: ' + squad);
 
 // For receiving --apitest parameters. if --apitest is supplied, trigger API tests
@@ -91,8 +91,6 @@ if (argv.parallel === 'true') {
 }
 
 exports.config = {
-    user: 'ashokkumar_P7tvXe',
-    key: 'txzzXnsL23b8VdzN2mBJ',
 
     //
     // ====================
@@ -102,7 +100,7 @@ exports.config = {
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
     runner: 'local',
-    port: 4724,
+    //port: 4724,
     //
     // ==================
     // Specify Test Files
@@ -147,14 +145,6 @@ exports.config = {
     //
     capabilities: [
         {
-            project: "First Webdriverio Android Project",
-            build: 'Webdriverio Android',
-            name: 'first_test',
-            device: 'Google Pixel 3',
-            os_version: "9.0",
-            app: process.env.BROWSERSTACK_APP_ID || 'bs://2ced1cc6650b7aaab1e409f575259a61109da665',
-            'browserstack.debug': true
-
             // "platformName": "Android",
             // "appium:platformVersion": "10",
             // "appium:deviceName": "Redmi",
@@ -168,18 +158,18 @@ exports.config = {
             // maxInstances can get overwritten per capability. So if you have an in-house Selenium
             // grid with only 5 firefox instances available you can make sure that not more than
             // 5 instances get started at a time.
-            //maxInstances: 10,
-            // browserName: 'chrome',
-            // acceptInsecureCerts: true,
-            // 'goog:chromeOptions': {
-            //     "args": chromeArgs,
-            //     prefs: {
-            //         'directory_upgrade': true,
-            //         'prompt_for_download': false,
-            //         'download.default_directory': downloadDir
-            //     }
+            maxInstances: 10,
+            browserName: 'chrome',
+            acceptInsecureCerts: true,
+            'goog:chromeOptions': {
+                "args": chromeArgs,
+                prefs: {
+                    'directory_upgrade': true,
+                    'prompt_for_download': false,
+                    'download.default_directory': downloadDir
+                }
 
-            // }
+            }
 
             // If outputDir is provided WebdriverIO can capture driver session logs
             // it is possible to configure which logTypes to include/exclude.
@@ -446,7 +436,7 @@ exports.config = {
         Log.audit("-----------------------------------------------------------------------")
 
         scenarioContext.reset();
-        //browserUtil.reset();
+        browserUtil.reset();
     },
     /**
      * Runs after a Cucumber feature

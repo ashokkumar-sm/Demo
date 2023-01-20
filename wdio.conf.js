@@ -92,6 +92,9 @@ if (argv.parallel === 'true') {
 
 exports.config = {
 
+    user: 'ashokkumar_P7tvXe',
+    key: 'txzzXnsL23b8VdzN2mBJ',
+
     //
     // ====================
     // Runner Configuration
@@ -99,8 +102,8 @@ exports.config = {
     //
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
-    runner: 'local',
-    port: 4724,
+    // runner: 'local',
+    // port: 4724,
     //
     // ==================
     // Specify Test Files
@@ -230,7 +233,9 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    //baseUrl: 'http://localhost',
+
+    baseUrl: 'https://"ashokkumar_P7tvXe":"txzzXnsL23b8VdzN2mBJ"@hub-cloud.browserstack.com/wd/hub',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

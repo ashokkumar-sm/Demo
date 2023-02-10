@@ -13,7 +13,7 @@ const DateUtil = require('./CommonUtils/DateUtil');
 // The below module is used for cucumber html report generation
 const reporter = require('cucumber-html-reporter');
 const currentTime = DateUtil.getDateISOString().replace(/:/g, "-");
-let squad = "LiteFury";
+let squad = "Diamondere";
 const sourceSpecDirectory = 'DemoTests/' + squad + '/**/**'; 
 const jsonTmpDirectory = './reports/json/tmp/';
 const junitReportDirectory = './reports/junit/';
@@ -58,7 +58,7 @@ if (argv.featureContext) {
 }
 
 // For receiving --squad parameters.
-squad = argv.squad || "LiteFury" //if --squad is supplied, set Squad folder location; else, default to LiteFury
+squad = argv.squad || "Diamondere" //if --squad is supplied, set Squad folder location; else, default to LiteFury
 Log.audit('Current Squad: ' + squad);
 
 // For receiving --apitest parameters. if --apitest is supplied, trigger API tests

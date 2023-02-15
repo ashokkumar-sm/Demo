@@ -148,11 +148,11 @@ exports.config = {
     capabilities: [ 
         {
 
-            browserName: 'Safari',
+            browserName: 'Chrome',
             'bstack:options': {
-              os: 'OS X',
-              osVersion: 'Big Sur',
-              browserVersion: '14.1'
+              os: 'Windows',
+              osVersion: '11',
+              browserVersion: '103.0'
                 }
 
             // "platformName": "Android",
@@ -233,14 +233,14 @@ exports.config = {
     baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 100000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
-    connectionRetryTimeout: 120000,
+    connectionRetryTimeout: 1200000,
     //
     // Default request retries count
-    connectionRetryCount: 1,
+    connectionRetryCount: 2,
     //
     // Test runner services
     // Services take over a specific job you don't want to take care of. They enhance
@@ -335,7 +335,7 @@ exports.config = {
         timeout: 150000,
 
         ignoreUndefinedDefinitions: false,
-        retry: 1
+        retry: 2
     },
 
     //

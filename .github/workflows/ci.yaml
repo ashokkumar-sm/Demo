@@ -14,7 +14,6 @@ jobs:
         - name: Test
           run: npx wdio wdio.conf.js --squad=Diamondere --headless 
         - uses: actions/upload-artifact@v3
-         if: failure()
           with:
             name: report
             path: ./reports/html

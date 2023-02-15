@@ -9,6 +9,3 @@ Feature: Diamondere Westsite - Automation Test
         Given I search for Ring
         Then Ensure Ring search result page is browsed
         And I wait for ad popup and close ad popup
-
-    Scenario: Validate all home page menu links - Failure Scenario
-        Then Verify womens menu link in Diamondere

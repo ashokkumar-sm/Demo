@@ -1,6 +1,7 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const browserUtil = require('../../../CommonUtils/BrowserUtil');
 const LMJTab = require('../LMJDefinitions/LMJTab');
+const BrowserUtil = require('../../../CommonUtils/BrowserUtil');
 const { config } = require('../Configs/LMJ_' + global.testEnv + '.js');
 const LMJ = () => browserUtil.switchAndGetTab("LMJ");
 
@@ -12,6 +13,7 @@ const LMJ = () => browserUtil.switchAndGetTab("LMJ");
 
 When(/^the user has opened LMJ portal$/, () => {
 	browserUtil.openTab(new LMJTab());
+	BrowserUtil.maximize()
 });
 
 

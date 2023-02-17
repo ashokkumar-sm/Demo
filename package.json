@@ -27,7 +27,7 @@
     "@wdio/spec-reporter": "7.16.14",
     "@wdio/sync": "7.16.16",
     "appium-uiautomator2-driver": "^2.12.1",
-    "chromedriver": "^99.0.0",
+    "chromedriver": "^108.0.0",
     "cucumber-html-reporter": "5.2.0",
     "eslint": "7.28.0",
     "eslint-config-google": "0.14.0",

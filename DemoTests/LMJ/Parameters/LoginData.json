@@ -1,0 +1,16 @@
+{
+    "login": {
+        "valid":{
+                    "username": "testlmj@gmail.com",
+                    "password": "Pass@123"
+                },
+        "invalidEmail":{
+                    "username": "testj@gmail.com",
+                    "password": "Pass@123"
+                  },
+        "invalidPassword":{
+                    "username": "testlmj@gmail.com",
+                    "password": "aPass@123456"
+                  }
+    }
+}

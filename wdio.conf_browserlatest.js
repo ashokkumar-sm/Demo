@@ -91,8 +91,8 @@ if (argv.parallel === 'true') {
 }
 
 exports.config = {
-//       user: 'ashokkumar_P7tvXe',
-//   key: 'txzzXnsL23b8VdzN2mBJ',
+      user: 'ashokkumar_P7tvXe',
+  key: 'txzzXnsL23b8VdzN2mBJ',
 
     //
     // ====================
@@ -148,12 +148,12 @@ exports.config = {
     capabilities: [ 
         {
 
-            // browserName: 'Chrome',
-            // 'bstack:options': {
-            //   os: 'Windows',
-            //   osVersion: '11',
-            //   browserVersion: '103.0'
-            //     }
+            browserName: 'Chrome',
+            'bstack:options': {
+              os: 'Windows',
+              osVersion: '11',
+              browserVersion: '108.0'
+                }
 
             // "platformName": "Android",
             // "appium:platformVersion": "10",
@@ -168,18 +168,18 @@ exports.config = {
             // maxInstances can get overwritten per capability. So if you have an in-house Selenium
             // grid with only 5 firefox instances available you can make sure that not more than
             // 5 instances get started at a time.
-            maxInstances: 10,
-            browserName: 'chrome',
-            acceptInsecureCerts: true,
-            'goog:chromeOptions': {
-                "args": chromeArgs,
-                prefs: {
-                    'directory_upgrade': true,
-                    'prompt_for_download': false,
-                    'download.default_directory': downloadDir
-                }
+            // maxInstances: 10,
+            // browserName: 'chrome',
+            // acceptInsecureCerts: true,
+            // 'goog:chromeOptions': {
+            //     "args": chromeArgs,
+            //     prefs: {
+            //         'directory_upgrade': true,
+            //         'prompt_for_download': false,
+            //         'download.default_directory': downloadDir
+            //     }
 
-            }
+            // }
 
             // If outputDir is provided WebdriverIO can capture driver session logs
             // it is possible to configure which logTypes to include/exclude.
@@ -247,7 +247,7 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     //services: ['chromedriver','appium'],//'chromedriver', 'selenium-standalone'
-    services: ['chromedriver'],
+    services: ['browserstack'],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

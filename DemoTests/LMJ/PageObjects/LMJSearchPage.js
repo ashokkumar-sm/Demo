@@ -10,7 +10,7 @@ class LMJSearchPage {
     get lnkRings() { return $('//span[text()="Rings"]') }
     get lnkSolitaires() { return $('//a[contains(text(),"Solitaires")]')}
     get lblTradePrice() { return $$('//div[@class="wd-100 p-20-mob"]//p[@class="has-text-weight-bold ln-height-17 mb-0"]/span/span[contains(text(),"£")]')}
-    get lnkSelectProduct()  { return $('//div[@class="wd-100 p-20-mob"]//div[@class="has-text-centered is-flex is-flex-direction-column"]/div/img[@alt="SL9657(WG)"]') }
+    get lnkSelectProduct()  { return $('//div[@class="wd-100 p-20-mob"]//img[@alt="SL9657(WG)"]') }
 
    
     selectProduct(){

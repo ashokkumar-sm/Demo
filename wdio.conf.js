@@ -147,11 +147,11 @@ exports.config = {
     //
     capabilities: [ 
         {
-            browserName: 'Firefox',
+            browserName: 'Safari',
             'bstack:options': {
-              browserVersion: '108.0',
-              os: 'Windows',
-              osVersion: '10'
+              browserVersion: '14.1',
+              os: 'OS X',
+              osVersion: 'Big Sur'
                 }
 
             // "platformName": "Android",

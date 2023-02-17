@@ -152,7 +152,7 @@ exports.config = {
             'bstack:options': {
               os: 'Windows',
               osVersion: '11',
-              browserVersion: '103.0'
+              browserVersion: '108.0'
                 }
 
             // "platformName": "Android",
